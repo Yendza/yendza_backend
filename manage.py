@@ -3,21 +3,6 @@
 import os
 import sys
 
-# dentro de manage.py, antes de executar main()
-from django.contrib.auth import get_user_model
-import os
-
-User = get_user_model()
-
-username = os.getenv("DJANGO_SUPERUSER_USERNAME", "Moises")
-email = os.getenv("DJANGO_SUPERUSER_EMAIL", "moisesedson.manuel@gmail.com")
-password = os.getenv("DJANGO_SUPERUSER_PASSWORD", "Desportivo")
-
-if not User.objects.filter(username=username).exists():
-    User.objects.create_superuser(username=username, email=email, password=password)
-    print("Superusuário criado com sucesso!")
-
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'yendza_backend.settings')
